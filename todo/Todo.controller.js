@@ -1,5 +1,6 @@
 (function(){
-	'use strict';
+'use strict';
+
 const angular = require('angular');
 
 angular.module('app').controller('TodoCtrl', TodoCtlr);
@@ -16,14 +17,13 @@ function TodoCtlr(){
 	vm.editTask = editTask;
 	
 	function addTask (task) {
-		if (vm.tasks.indexOf(task)!= -1){
+		if (vm.tasks.indexOf({'task': task})!= -1){
 			alert('That task is already on the list');
 		} else{
 			vm.tasks.push({
 				'task': task,
 			});
 			vm.newTask = '';
-			vm.dueTime = new Date();
 		}
 	}
 
@@ -37,10 +37,6 @@ function TodoCtlr(){
 		vm.newTask = task.task;
 		var taskIndex = vm.tasks.indexOf(task);
 		vm.tasks.splice(taskIndex, 1);
-	}
-
-	function toggleMeridian() {
-		vm.isMeridian = !vm.isMeridian;
 	}
 }
 
