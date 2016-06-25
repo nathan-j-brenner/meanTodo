@@ -18,7 +18,8 @@ module.exports = function(config) {
       './scripts/vendor.bundle.js',
       './scripts/app.bundle.js',
       './node_modules/angular-mocks/angular-mocks.js',
-      './todo/todo.spec.js'
+      './todo/todo.spec.js',
+      './services/data.service.spec.js'
     ],
 
 
