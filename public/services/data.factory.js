@@ -13,7 +13,7 @@ function dataFactory($http, $q){
 	return service;
 	
 	function getTodos(cb){
-		return $http.get('./services/data.mock.json').then(cb);
+		return $http.get('/api/todos').then(cb);
 	}
 }
 

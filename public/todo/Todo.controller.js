@@ -9,7 +9,7 @@ function TodoCtlr($http, dataFactory){
 	vm.completedTasks=[];
 
 	dataFactory.getTodos((response)=>{
-		vm.tasks = response.data;
+		vm.tasks = response.data.todos;
 	});
 
 
