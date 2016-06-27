@@ -1,8 +1,12 @@
 describe('TodoCtrl', ()=>{
 
-	beforeEach(module('app'));
-
 	var TodoCtrl;
+
+	it('it has a dummy spec to test 2 + 2', ()=>{
+		expect(2+2).toEqual(4);
+	});
+
+	beforeEach(module('app'));
 
 	beforeEach(inject(($controller)=>{
 		scope = {};

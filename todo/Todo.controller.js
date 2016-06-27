@@ -9,14 +9,6 @@ function TodoCtlr(){
 	vm.completedTasks=[];
 	vm.tasks = [];
 
-	// time picker
-	vm.dueTime = new Date();
-	vm.now = new Date();
-	vm.hstep = 1;
-	vm.mstep = 15;
-	vm.isMeridian = true;
-	vm.toggleMeridian = toggleMeridian;
-
 	// todo functions
 	vm.addTask = addTask;
 	vm.completeTask = completeTask;
@@ -28,10 +20,8 @@ function TodoCtlr(){
 		} else{
 			vm.tasks.push({
 				'task': task,
-				'dueTime': time
 			});
 			vm.newTask = '';
-			vm.dueTime = new Date();
 		}
 	}
 
@@ -43,14 +33,10 @@ function TodoCtlr(){
 
 	function editTask (task) {
 		vm.newTask = task.task;
-		vm.dueTime = task.dueTime;
 		var taskIndex = vm.tasks.indexOf(task);
 		vm.tasks.splice(taskIndex, 1);
 	}
 
-	function toggleMeridian() {
-		vm.isMeridian = !vm.isMeridian;
-	}
 }
 
 })();

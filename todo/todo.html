@@ -4,10 +4,6 @@
 		<label>What do you need to do?</label>
 		<input type='text' class='form-control' name='newTask' ng-model='vm.newTask' required>
 	</div>
-	<div class='form-group'>
-		<label>What time do you need to get this done by?</label>
- 		<uib-timepicker ng-model='vm.dueTime' ng-change='vm.changed()' hour-step='vm.hstep' minute-step='vm.mstep' show-meridian='vm.isMeridian' min='vm.now'></uib-timepicker>
-	</div>
 	<button class='btn btn-primary'>Add</button>
 </form>
 <div ng-hide='vm.tasks.length == 0'>
@@ -23,9 +19,6 @@
 			<div class='col-sm-5'>
 				<span class='glyphicon glyphicon-remove'></span> {{task.task}}
 			</div>
-			<div class='col-sm-3'>
-				Due by: {{task.dueTime | date:'shortTime' }}
-			</div>
 		</div>
 		<br />
 	</div>
@@ -33,6 +26,6 @@
 <div ng-hide='vm.completedTasks.length == 0'>
 	<h2 class='text-center'>Tasks completed</h2>
 	<div ng-repeat = 'task in vm.completedTasks'>
-		<span class='glyphicon glyphicon-ok'></span> {{task.task}} Completed at {{vm.now | date: 'shortTime'}}
+		<span class='glyphicon glyphicon-ok'></span> {{task.task}}
 	</div>
 </div>

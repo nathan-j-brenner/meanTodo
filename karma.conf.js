@@ -15,11 +15,14 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      './scripts/vendor.bundle.js',
+      './node_modules/angular/angular.js',
+      'node_modules/angular-ui-router/release/angular-ui-router.js',
+      'node_modules/angular-animate/angular-animate.js',
+      'node_modules/angular-touch/angular-touch.js',
       './node_modules/angular-mocks/angular-mocks.js',
-      './scripts/app.bundle.js',
-      './todo/todo.spec.js',
-      './services/data.service.spec.js'
+      'app.module.js',
+      './todo/Todo.controller.js',
+      './todo/todo.spec.js'
     ],
 
 
