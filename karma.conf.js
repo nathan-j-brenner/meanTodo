@@ -16,8 +16,8 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       './scripts/vendor.bundle.js',
-      './scripts/app.bundle.js',
       './node_modules/angular-mocks/angular-mocks.js',
+      './scripts/app.bundle.js',
       './todo/todo.spec.js',
       './services/data.service.spec.js'
     ],

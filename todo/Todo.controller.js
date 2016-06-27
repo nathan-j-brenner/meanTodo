@@ -3,14 +3,12 @@
 
 const angular = require('angular');
 
-angular.module('app').controller('TodoCtrl', TodoCtlr);
-
-function TodoCtlr(){
+function TodoCtlr(dataService){
 	var vm = this;
 
 	vm.completedTasks=[];
 	vm.tasks = [];
-
+	
 	// todo functions
 	vm.addTask = addTask;
 	vm.completeTask = completeTask;
@@ -39,5 +37,8 @@ function TodoCtlr(){
 		vm.tasks.splice(taskIndex, 1);
 	}
 }
+
+TodoCtlr.$inject = ['dataService'];
+angular.module('app').controller('TodoCtrl', TodoCtlr);
 
 })();

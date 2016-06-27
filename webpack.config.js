@@ -13,7 +13,7 @@ const config = {
 	plugins: [
 		new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js")
 	]
-    
+	
 }
 
 module.exports = config;
