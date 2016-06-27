@@ -1,8 +1,12 @@
 <h1 class='text-center'>Todo list</h1>
-<form ng-submit='vm.addTask(vm.newTask)' name='todoForm'>
+<form ng-submit='vm.addTask(vm.newTask, vm.dueTime)' name='todoForm'>
 	<div class='form-group'>
 		<label>What do you need to do?</label>
 		<input type='text' class='form-control' name='newTask' ng-model='vm.newTask' required>
+	</div>
+	<div class='form-group'>
+		<label>What time do you need to get this done by?</label>
+ 		<uib-timepicker ng-model='vm.dueTime' ng-change='vm.changed()' hour-step='vm.hstep' minute-step='vm.mstep' show-meridian='vm.isMeridian' min='vm.now'></uib-timepicker>
 	</div>
 	<button class='btn btn-primary'>Add</button>
 </form>
@@ -14,17 +18,13 @@
 				<button class='btn btn-success btn-sm' ng-click='vm.completeTask(task)'>Complete</button>
 			</div>
 			<div class='col-sm-2'>
-				<!--
-				Not sure what I like more.
-				If line 27 is active, with a button click, the task is popped from the tasks array and moved back into the form
-				If line 28 is active, If the checkbox is checked, you can edit the task as it is in the tasks array
-				-->
-				<!--<button class='btn btn-warning btn-sm' ng-click='vm.editTask(task)'>Edit</button>-->
-				<label>Edit <input type="checkbox" ng-model="checked" ng-init="checked=false" /></label>
+				<button class='btn btn-warning btn-sm' ng-click='vm.editTask(task)'>Edit</button>
 			</div>
 			<div class='col-sm-5'>
-				<p ng-if="!checked"><span class='glyphicon glyphicon-remove'></span> {{task.task}}</p>
-				<input type="text" ng-if="checked" class="animate-if" ng-model="task.task"/>
+				<span class='glyphicon glyphicon-remove'></span> {{task.task}}
+			</div>
+			<div class='col-sm-3'>
+				Due by: {{task.dueTime | date:'shortTime' }}
 			</div>
 		</div>
 		<br />
@@ -33,6 +33,6 @@
 <div ng-hide='vm.completedTasks.length == 0'>
 	<h2 class='text-center'>Tasks completed</h2>
 	<div ng-repeat = 'task in vm.completedTasks'>
-		<span class='glyphicon glyphicon-ok'></span> {{task.task}}
+		<span class='glyphicon glyphicon-ok'></span> {{task.task}} Completed at {{vm.now | date: 'shortTime'}}
 	</div>
 </div>

@@ -1,11 +1,11 @@
 (function(){
 	'use strict';
 
-const angular = require('angular');
-const ngAnimate= require('angular-animate');
-const uiRouter = require('angular-ui-router');
+// const angular = require('angular');
+// const ngAnimate= require('angular-animate');
+// const uiRouter = require('angular-ui-router');
 
-angular.module('app', [uiRouter, ngAnimate]).config(function($stateProvider, $urlRouterProvider){
+angular.module('app', ['ui.router', 'ngAnimate', 'ui.bootstrap']).config(function($stateProvider, $urlRouterProvider){
 	$urlRouterProvider.otherwise('/');
 
 	$stateProvider.state('todo', {
@@ -15,6 +15,6 @@ angular.module('app', [uiRouter, ngAnimate]).config(function($stateProvider, $ur
 	});
 });
 
-require('./todo/Todo.controller.js');
+// require('./todo/Todo.controller.js');
 
 })();
