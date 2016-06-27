@@ -1,13 +1,17 @@
 (function(){
 	'use strict';
 
-angular.module('app').controller('TodoCtrl', TodoCtlr);
+// angular.module('app').controller('TodoCtrl', TodoCtlr);
 
-function TodoCtlr(){
+function TodoCtlr($http, dataFactory){
 	var vm = this;
 
 	vm.completedTasks=[];
-	vm.tasks = [];
+
+	dataFactory.getTodos((response)=>{
+		vm.tasks = response.data;
+	});
+
 
 	// todo functions
 	vm.addTask = addTask;
@@ -38,5 +42,9 @@ function TodoCtlr(){
 	}
 
 }
+
+TodoCtlr.$inject = ['$http', 'dataFactory'];
+
+angular.module('app').controller('TodoCtrl', TodoCtlr);
 
 })();
