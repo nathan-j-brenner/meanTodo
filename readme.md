@@ -7,7 +7,6 @@ Node and Webpack needs to be installed for this to work.
 To use this app, run: 
 
 `npm install`
-`webpack`
-`npm run dev`
+`nodemon`
 
 To run tests: `npm test`

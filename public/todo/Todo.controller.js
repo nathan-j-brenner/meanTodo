@@ -4,29 +4,26 @@
 // angular.module('app').controller('TodoCtrl', TodoCtlr);
 
 function TodoCtlr($http, dataFactory){
+	// change to ctrl
 	var vm = this;
 
 	vm.completedTasks=[];
-
-	dataFactory.getTodos((response)=>{
-		vm.tasks = response.data.todos;
-	});
-
 
 	// todo functions
 	vm.addTask = addTask;
 	vm.completeTask = completeTask;
 	vm.editTask = editTask;
+	vm.getTodos = getTodos;
+
+	vm.getTodos();
 	
-	function addTask (task, time) {
-		if (vm.tasks.indexOf(task)!= -1){
-			alert('That task is already on the list');
-		} else{
-			vm.tasks.push({
-				'task': task,
-			});
-			vm.newTask = '';
-		}
+	function addTask (task) {
+		var taskDoc = {
+			"task": task
+		};
+		dataFactory.postTodo(taskDoc);
+		vm.newTask = '';
+		return getTodos();
 	}
 
 	function completeTask (task) {
@@ -39,6 +36,13 @@ function TodoCtlr($http, dataFactory){
 		vm.newTask = task.task;
 		var taskIndex = vm.tasks.indexOf(task);
 		vm.tasks.splice(taskIndex, 1);
+	}
+
+	function getTodos(){
+		dataFactory.getTodos((response)=>{
+			var tasks = response.data.todos;
+			vm.tasks = tasks;
+		});
 	}
 
 }
