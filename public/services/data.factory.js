@@ -23,10 +23,16 @@ function dataFactory($http, $q){
 	}
 
 	function putTodo(task){
+		var queue = [];
 		var id = task._id;
-		return $http.put(`/api/todos/${todo._id}`, todo).then(result=>{
-			todo = result.data.todo;
-			return todo;
+
+		var request = $http.put(`/api/todos/${id}`, task).then((result)=>{
+			task = result.data.task;
+			return task;
+		});
+		queue.push(request);
+		return $q.all(queue).then((results)=>{
+			console.log('I have updated a todo');
 		});
 	}
 

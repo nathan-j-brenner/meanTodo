@@ -39,6 +39,7 @@ function TodoCtlr($http, dataFactory){
 
 	function updateTask(task){
 		task.edit = false;
+		dataFactory.putTodo(task);
 	}
 
 	function getTodos(){

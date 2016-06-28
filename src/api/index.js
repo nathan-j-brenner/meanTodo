@@ -24,21 +24,23 @@ router.post('/todos', (req, res)=>{
 	});
 });
 
-router.put('/todo/:id', (req, res)=>{
+router.put('/todos/:id', (req, res)=>{
 	var id = req.params.id;
 	var todo = req.body;
-	if( todo && tdo._id !== id) {
-		return res.status(500).json({message: "Id's don't match"});
+	if( todo && todo._id !== id) {
+		return res.status(500).json({message: "Ids don't match"});
 	}
 	Todo.findByIdAndUpdate(id, todo, {new: true}, (err, todo)=>{
-		if(err) return res.status(500).json({message: err.message});
+		if(err) {
+			return res.status(500).json({err: err.message});
+		}
 		res.json({todo: todo, message: 'Todo Updated'});
 	});
-
 });
 
-router.delete('/todo/:id', (req, res)=>{
 
-});
+// router.delete('/todo/:id', (req, res)=>{
+
+// });
 
 module.exports = router;
