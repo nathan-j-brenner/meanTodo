@@ -39,8 +39,14 @@ router.put('/todos/:id', (req, res)=>{
 });
 
 
-// router.delete('/todo/:id', (req, res)=>{
-
-// });
+router.delete('/todos/:id', (req, res)=>{
+	var id = req.params.id;
+	Todo.findByIdAndRemove(id, (err, result)=>{
+		if(err){
+			return res.status(500).json({err: err.message});
+		}
+		res.json({message: "Todo deleted"});
+	});
+});
 
 module.exports = router;

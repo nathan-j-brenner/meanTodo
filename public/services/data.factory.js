@@ -7,9 +7,10 @@
 function dataFactory($http, $q){
 
 	var service = {
+		deleteTodo: deleteTodo,
 		getTodos: getTodos,
 		postTodo: postTodo,
-		putTodo: putTodo,
+		putTodo: putTodo
 	};
 
 	return service;
@@ -37,8 +38,13 @@ function dataFactory($http, $q){
 	}
 
 	function deleteTodo(task){
-		// var id = task._id;
-		// return $http.delete
+		var id = task._id;
+		if(!id){
+			return $q.resolve();
+		}
+		return $http.delete(`/api/todos/${id}`).then(()=>{
+			console.log("Todo deleted");
+		});
 	}
 }
 

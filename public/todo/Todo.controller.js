@@ -7,8 +7,6 @@ function TodoCtlr($http, dataFactory){
 	// change to ctrl
 	var vm = this;
 
-	vm.completedTasks=[];
-
 	// todo functions
 	vm.addTask = addTask;
 	vm.completeTask = completeTask;
@@ -28,9 +26,8 @@ function TodoCtlr($http, dataFactory){
 	}
 
 	function completeTask (task) {
-		vm.completedTasks.push(task);
-		var taskIndex = vm.tasks.indexOf(task);
-		vm.tasks.splice(taskIndex, 1);
+		dataFactory.deleteTodo(task);
+		return getTodos();
 	}
 
 	function editTask (task) {
