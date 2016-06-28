@@ -14,10 +14,12 @@
 				<button class='btn btn-success btn-sm' ng-click='vm.completeTask(task)'>Complete</button>
 			</div>
 			<div class='col-sm-2'>
-				<button class='btn btn-warning btn-sm' ng-click='vm.editTask(task)'>Edit</button>
+				<button class='btn btn-warning btn-sm' ng-click='vm.editTask(task)' ng-hide="task.edit">Edit</button>
+				<button class='btn btn-warning btn-sm' ng-click='vm.updateTask(task)' ng-show=task.edit>Save</button>
 			</div>
 			<div class='col-sm-5'>
-				<span class='glyphicon glyphicon-remove'></span> {{task.task}}
+				<span ng-hide="task.edit"><span class='glyphicon glyphicon-remove'></span> {{task.task}}</span>
+				<input ng-show="task.edit" type='text' class='form-control' name='' ng-model='task.task' >
 			</div>
 		</div>
 		<br />

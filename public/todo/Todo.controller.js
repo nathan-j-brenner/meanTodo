@@ -14,12 +14,13 @@ function TodoCtlr($http, dataFactory){
 	vm.completeTask = completeTask;
 	vm.editTask = editTask;
 	vm.getTodos = getTodos;
+	vm.updateTask = updateTask;
 
 	vm.getTodos();
 	
 	function addTask (task) {
 		var taskDoc = {
-			"task": task
+			"task": task,
 		};
 		dataFactory.postTodo(taskDoc);
 		vm.newTask = '';
@@ -33,9 +34,11 @@ function TodoCtlr($http, dataFactory){
 	}
 
 	function editTask (task) {
-		vm.newTask = task.task;
-		var taskIndex = vm.tasks.indexOf(task);
-		vm.tasks.splice(taskIndex, 1);
+		task.edit= true;
+	}
+
+	function updateTask(task){
+		task.edit = false;
 	}
 
 	function getTodos(){
