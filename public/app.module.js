@@ -5,7 +5,7 @@
 // const ngAnimate= require('angular-animate');
 // const uiRouter = require('angular-ui-router');
 
-angular.module('app', ['ui.router', 'ngAnimate']).config(function($stateProvider, $urlRouterProvider){
+angular.module('app', ['ui.router']).config(function($stateProvider, $urlRouterProvider){
 	$urlRouterProvider.otherwise('/');
 
 	$stateProvider.state('todo', {
