@@ -1,9 +1,7 @@
 (function(){
 	'use strict';
 
-// angular.module('app').controller('TodoCtrl', TodoCtlr);
-
-function TodoCtlr($http, dataFactory){
+function TodoCtrl(dataFactory){
 	// change to ctrl
 	var vm = this;
 
@@ -48,8 +46,8 @@ function TodoCtlr($http, dataFactory){
 
 }
 
-TodoCtlr.$inject = ['$http', 'dataFactory'];
+TodoCtrl.$inject = ['dataFactory'];
 
-angular.module('app').controller('TodoCtrl', TodoCtlr);
+angular.module('app').controller('TodoCtrl', TodoCtrl);
 
 })();

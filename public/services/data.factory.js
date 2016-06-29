@@ -49,6 +49,6 @@ function dataFactory($http, $q){
 }
 
 dataFactory.$inject = ['$http', '$q'];
-angular.module('app').service('dataFactory', dataFactory);
+angular.module('app').factory('dataFactory', dataFactory);
 
 })();
