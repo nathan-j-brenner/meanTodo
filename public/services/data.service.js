@@ -4,7 +4,7 @@
 
 // const angular = require('angular');
 
-function dataFactory($http, $q){
+function dataService($http, $q){
 
 	var service = {
 		deleteTodo: deleteTodo,
@@ -48,7 +48,7 @@ function dataFactory($http, $q){
 	}
 }
 
-dataFactory.$inject = ['$http', '$q'];
-angular.module('app').factory('dataFactory', dataFactory);
+dataService.$inject = ['$http', '$q'];
+angular.module('app').factory('dataService', dataService);
 
 })();

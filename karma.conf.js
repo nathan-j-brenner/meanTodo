@@ -19,7 +19,7 @@ module.exports = function(config) {
       './public/vendor/angular-ui-router.js',
       './node_modules/angular-mocks/angular-mocks.js',
       './public/app.module.js',
-      './public/services/data.factory.js',
+      './public/services/data.service.js',
       './public/todo/Todo.controller.js',
       './public/todo/todo.spec.js'
     ],

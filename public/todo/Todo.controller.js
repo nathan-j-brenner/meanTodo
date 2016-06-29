@@ -1,7 +1,7 @@
 (function(){
 	'use strict';
 
-function TodoCtrl(dataFactory){
+function TodoCtrl(dataService){
 	// change to ctrl
 	var vm = this;
 
@@ -18,13 +18,13 @@ function TodoCtrl(dataFactory){
 		var taskDoc = {
 			"task": task,
 		};
-		dataFactory.postTodo(taskDoc);
+		dataService.postTodo(taskDoc);
 		vm.newTask = '';
 		return getTodos();
 	}
 
 	function completeTask (task) {
-		dataFactory.deleteTodo(task);
+		dataService.deleteTodo(task);
 		return getTodos();
 	}
 
@@ -34,11 +34,11 @@ function TodoCtrl(dataFactory){
 
 	function updateTask(task){
 		task.edit = false;
-		dataFactory.putTodo(task);
+		dataService.putTodo(task);
 	}
 
 	function getTodos(){
-		dataFactory.getTodos((response)=>{
+		dataService.getTodos((response)=>{
 			var tasks = response.data.todos;
 			vm.tasks = tasks;
 		});
@@ -46,7 +46,7 @@ function TodoCtrl(dataFactory){
 
 }
 
-TodoCtrl.$inject = ['dataFactory'];
+TodoCtrl.$inject = ['dataService'];
 
 angular.module('app').controller('TodoCtrl', TodoCtrl);
 

@@ -7,7 +7,8 @@ describe('TodoCtrl', ()=>{
 			expect(true).toBe(true);
 		})
 	})
-
+	
+	//this seems to work along with the mock version below
 	// beforeEach(module('app'));
 
 	// beforeEach(inject(($controller, dataFactory)=>{
@@ -24,17 +25,17 @@ describe('TodoCtrl', ()=>{
 
 	beforeEach(angular.mock.module('app'));
 
-	beforeEach(angular.mock.inject(($controller, dataFactory)=>{
+	beforeEach(angular.mock.inject(($controller, dataService)=>{
 		scope = {};
-		mock_dataFactory = dataFactory;
-		spyOn(mock_dataFactory, 'deleteTodo').and.callThrough();
-		spyOn(mock_dataFactory, 'getTodos').and.callThrough();
-		spyOn(mock_dataFactory, 'postTodo').and.callThrough();
-		spyOn(mock_dataFactory, 'putTodo').and.callThrough();
+		mock_dataService = dataService;
+		spyOn(mock_dataService, 'deleteTodo').and.callThrough();
+		spyOn(mock_dataService, 'getTodos').and.callThrough();
+		spyOn(mock_dataService, 'postTodo').and.callThrough();
+		spyOn(mock_dataService, 'putTodo').and.callThrough();
 		TodoCtrl = $controller('TodoCtrl', {
-			dataFactory : mock_dataFactory
+			dataService : mock_dataService
 		});
-	}))
+	}));
 });
 
 
