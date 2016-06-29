@@ -1,22 +1,32 @@
 describe('Data Factory', ()=>{
 	var dataService;
 
-	// beforeEach(module('app'));
+	describe('A suite', ()=>{
+		it('contains spec with an expectation', ()=>{
+			expect(true).toBe(true);
+		})
+	})
 
-	// beforeEach(inject(function(_dataService_) {
-	// 	Data = _dataService_;
-	// }))
+	beforeEach(angular.mock.module('app'));
 
-	// beforeEach(()=>{
-	// 	inject(($injector)=>{
-	// 		dataService = $injector.get('dataService');
-	// 	})
-	// });
+	beforeEach(angular.mock.inject((_dataService_, $http, $q)=>{
+		dataService = _dataService_;
+	}));
 
-	// Error: [$injector:unpr] Unknown provider: DataProvider <- Data
-	// not sure how to fix this, don't quite get what I'm missing on how to inject the service.
+	it('deleteTodo', ()=>{
+		// todo
+	})
 
-	// it('it has a dummy spec to test 2 + 2', ()=>{
-	// 	expect(2+2).toEqual(4);
-	// })
+	it('getTodos', ()=>{
+		// todo
+	})
+
+	it('postTodo', ()=>{
+		// todo
+	})
+
+	it('putTodo', ()=>{
+		// todo
+	})
+
 });

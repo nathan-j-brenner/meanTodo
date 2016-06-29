@@ -21,7 +21,8 @@ module.exports = function(config) {
       './public/app.module.js',
       './public/services/data.service.js',
       './public/todo/Todo.controller.js',
-      './public/todo/todo.spec.js'
+      './public/todo/todo.spec.js',
+      './public/services/data.service.spec.js'
     ],
 
 

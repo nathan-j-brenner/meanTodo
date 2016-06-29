@@ -14,6 +14,16 @@ function dataService($http, $q){
 	};
 
 	return service;
+
+	function deleteTodo(task){
+		var id = task._id;
+		if(!id){
+			return $q.resolve();
+		}
+		return $http.delete(`/api/todos/${id}`).then(()=>{
+			console.log("Todo deleted");
+		});
+	}
 	
 	function getTodos(cb){
 		return $http.get('/api/todos').then(cb);
@@ -37,15 +47,6 @@ function dataService($http, $q){
 		});
 	}
 
-	function deleteTodo(task){
-		var id = task._id;
-		if(!id){
-			return $q.resolve();
-		}
-		return $http.delete(`/api/todos/${id}`).then(()=>{
-			console.log("Todo deleted");
-		});
-	}
 }
 
 dataService.$inject = ['$http', '$q'];

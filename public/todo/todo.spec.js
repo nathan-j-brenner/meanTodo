@@ -36,6 +36,26 @@ describe('TodoCtrl', ()=>{
 			dataService : mock_dataService
 		});
 	}));
+
+	it('addTask', ()=>{
+		// todo
+	})
+
+	it('completeTask', ()=>{
+		// todo
+	})
+
+	it('editTask', ()=>{
+		// todo
+	})
+
+	it('updateTask', ()=>{
+		// todo
+	})
+
+	it('getTodos', ()=>{
+		// todo
+	})
 });
 
 
