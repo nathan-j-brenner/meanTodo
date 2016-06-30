@@ -10,3 +10,5 @@ To use this app, run:
 `nodemon`
 
 To run tests: `npm test`
+
+A lot of this app is based off of [Treehouse Mean Stack course](https://github.com/treehouse-projects/mean-todo)
