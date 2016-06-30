@@ -4,7 +4,7 @@
 
 // const angular = require('angular');
 
-function dataService($http, $q){
+function dataService($http, $q, $log){
 
 	var service = {
 		deleteTodo: deleteTodo,
@@ -25,8 +25,16 @@ function dataService($http, $q){
 		});
 	}
 	
-	function getTodos(cb){
-		return $http.get('/api/todos').then(cb);
+	function getTodos(){
+		return $http.get('/api/todos')
+					.then(getTodosComplete)
+					.catch(getTodosFailed);
+		function getTodosComplete(response) {
+			return response.data;
+		}
+		function getTodosFailed(){
+			return $log.error('Failed request to get todos from database');
+		}
 	}
 
 	function postTodo(task){
@@ -49,7 +57,7 @@ function dataService($http, $q){
 
 }
 
-dataService.$inject = ['$http', '$q'];
+dataService.$inject = ['$http', '$q', '$log'];
 angular.module('app').factory('dataService', dataService);
 
 })();

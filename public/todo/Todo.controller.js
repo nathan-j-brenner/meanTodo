@@ -1,7 +1,7 @@
 (function(){
 	'use strict';
 
-function TodoCtrl(dataService){
+function TodoCtrl(dataService, $log){
 	// change to ctrl
 	var vm = this;
 
@@ -12,7 +12,11 @@ function TodoCtrl(dataService){
 	vm.getTodos = getTodos;
 	vm.updateTask = updateTask;
 
-	vm.getTodos();
+	activate();
+
+	function activate() {
+		return getTodos().then(() => $log.info('Activated Todo view'));
+	}
 	
 	function addTask (task) {
 		var taskDoc = {
@@ -38,15 +42,12 @@ function TodoCtrl(dataService){
 	}
 
 	function getTodos(){
-		dataService.getTodos((response)=>{
-			var tasks = response.data.todos;
-			vm.tasks = tasks;
-		});
+		return dataService.getTodos().then( data => vm.tasks = data.todos );
 	}
 
 }
 
-TodoCtrl.$inject = ['dataService'];
+TodoCtrl.$inject = ['dataService', '$log'];
 
 angular.module('app').controller('TodoCtrl', TodoCtrl);
 
