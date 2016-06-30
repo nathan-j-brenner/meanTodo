@@ -2,8 +2,6 @@
 
 'use strict';
 
-// const angular = require('angular');
-
 function dataService($http, $q, $log){
 
 	var service = {
