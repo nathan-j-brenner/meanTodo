@@ -3,7 +3,6 @@
 
 module.exports = function(config) {
   config.set({
-
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
 
@@ -15,14 +14,19 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      //vendors
       './public/vendor/angular.js',
       './public/vendor/angular-ui-router.js',
       './node_modules/angular-mocks/angular-mocks.js',
+
+      //app
       './public/app.module.js',
       './public/services/data.service.js',
       './public/todo/Todo.controller.js',
-      './public/todo/todo.spec.js',
-      './public/services/data.service.spec.js'
+
+      //specs
+      './public/services/data.service.spec.js',
+      './public/todo/todo.spec.js'
     ],
 
 
@@ -33,8 +37,6 @@ module.exports = function(config) {
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
-    },
 
 
     // test results reporter to use
@@ -71,6 +73,7 @@ module.exports = function(config) {
 
     // Concurrency level
     // how many browser should be started simultaneous
-    concurrency: Infinity
+    concurrency: Infinity,
+
   })
 }
