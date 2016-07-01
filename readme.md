@@ -14,3 +14,7 @@ To run tests: `npm test`
 A lot of this app is based off of [Treehouse Mean Stack course](https://github.com/treehouse-projects/mean-todo)
 
 I refactored the client side code, configured jasmine/karma tests, added remote database with mongoLabs
+
+Deploy with Now:
+last built failing
+https://todo-ovmegdjzdw.now.sh/
