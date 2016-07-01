@@ -1,5 +1,3 @@
-(function(){
-
 'use strict';
 
 function dataService($http, $q, $log){
@@ -55,7 +53,4 @@ function dataService($http, $q, $log){
 
 }
 
-dataService.$inject = ['$http', '$q', '$log'];
-angular.module('app').factory('dataService', dataService);
-
-})();
+module.exports = dataService;

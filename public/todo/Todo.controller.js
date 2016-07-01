@@ -1,5 +1,5 @@
-(function(){
-	'use strict';
+
+'use strict';
 
 function TodoCtrl(dataService, $log){
 	var vm = this;
@@ -46,7 +46,4 @@ function TodoCtrl(dataService, $log){
 
 }
 
-TodoCtrl.$inject = ['dataService', '$log'];
-angular.module('app').controller('TodoCtrl', TodoCtrl);
-
-})();
+module.exports = TodoCtrl;

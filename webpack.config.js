@@ -3,11 +3,11 @@ const path = require('path');
 
 const config = {
 	entry: {
-		app: './app.module.js',
+		app: './public/app.module.js',
 		vendor: ['angular']
 	},
 	output: {
-		path: __dirname + '/scripts',
+		path: __dirname + '/public/scripts',
 		filename: 'app.bundle.js'
 	},
 	plugins: [

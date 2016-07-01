@@ -1,7 +1,9 @@
-(function(){
-	'use strict';
+'use strict';
 
-angular.module('app', ['ui.router']).config(config);
+var angular = require('angular')
+var uirouter = require('angular-ui-router');
+
+angular.module('app', [uirouter]).config(config);
 
 function config ($stateProvider, $urlRouterProvider){
 	$urlRouterProvider.otherwise('/');
@@ -14,4 +16,6 @@ function config ($stateProvider, $urlRouterProvider){
 	});
 }
 
-})();
+// webpack
+require('./services')
+require('./todo')
